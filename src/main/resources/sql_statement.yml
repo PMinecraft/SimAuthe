@@ -1,0 +1,15 @@
+create_table: |
+  CREATE TABLE IF NOT EXISTS playerData (
+      playerName UNIQUE TEXT NOT NULL,
+      password TEXT NOT NULL
+  );
+
+register: "INSERT INTO playerData (playerName, password) VALUES (?, ?)"
+
+query_playername: "SELECT playerName FROM playerData WHERE playerName = ?"
+
+query_password: "SELECT playerName FROM playerData WHERE password = ?"
+
+update: "UPDATE playerData SET playerName = ? WHERE password = ?"
+
+delete: "DELETE FROM playerData WHERE playerName = ?"

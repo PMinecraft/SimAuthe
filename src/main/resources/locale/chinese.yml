@@ -1,0 +1,3 @@
+command_error: "&c命令错误！"
+not_permission: "&c没有权限！"
+second_password_inconsistency: "&c第二次密码和第一次密码不一致！"

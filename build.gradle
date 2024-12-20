@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+}
+
+group = 'com'
+version = '0.1.0-alpha'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+
+    maven {
+        url = "https://repo.maven.apache.org/maven2"
+    }
+}
+
+dependencies {
+    implementation "org.spigotmc:spigot-api:1.20.6-R0.1-SNAPSHOT"
+    implementation "org.xerial:sqlite-jdbc:3.47.1.0"
+    implementation 'mysql:mysql-connector-java:8.0.33'
+}
+
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

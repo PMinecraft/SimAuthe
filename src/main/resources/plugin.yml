@@ -1,0 +1,35 @@
+name: SimAuthe
+version: '${version}'
+main: com.simauthe.SimAuthe
+api-version: '1.20'
+author: PlaidMrdeer
+description: A login plugin that is simple to configure yet powerful in functionality.
+
+commands:
+  login:
+    aliases:
+      - l
+    description: Login command.
+    permission: simauthe.command.login
+
+  register:
+    aliases:
+      - reg
+    description: Register command.
+    permission: simauthe.command.register
+
+permissions:
+  simauthe.*:
+    description: All permissions.
+    children:
+      - simauthe.command.login
+      - simauthe.command.register
+    default: false
+
+  simauthe.command.login:
+    description: Login permission.
+    default: true
+
+  simauthe.command.register:
+    description: Register permission.
+    default: true

@@ -1,0 +1,41 @@
+#插件使用的语言
+language: chinese
+
+#数据存储设置
+database:
+  #数据存储方式: mysql, sqlite
+  type: sqlite
+  #数据库的主机名
+  host: 127.0.0.1
+  #数据库的端口
+  port: 3306
+  #数据库的名字
+  database_name: database
+  #数据库的用户名
+  username: root
+  #数据库的密码
+  password: 12345678
+
+#是否启用密码强度检测
+password_strength_check:
+  enable: true
+  password_strength:
+    #是否启用常规检测规则，如果启用此选项，你需要将 "password_strength_check.regex.enable" 选项设置为false。
+    enable: true
+    #密码的最小长度
+    min_length: 8
+    #是否要求包含至少一个大写字母
+    require_uppercase: true
+    #是否要求包含至少一个小写字母
+    require_lowercase: true
+    #是否要求包含至少一个数字
+    require_number: true
+    #是否要求包含至少一个特殊字符
+    require_special: true
+  #以下为进阶检测规则，如果你不知道这是什么，可以稍后学习再来配置。
+  #是否启用正则表达式检测密码强度，如果启用此选项，你需要将 "password_strength_check.password_strength.enable" 选项设置为false。
+  regex:
+    enable: false
+    regex_string: ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+={}\[\]:;"'<>,.?/\\|-]).{8,}$
+  #当密码强度不符合时，向玩家显示的消息。
+  show_information: "&c密码强度不够！至少包含一位小写字母，大写字母，数字，特殊字符，密码8位以上。"
